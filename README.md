@@ -41,7 +41,7 @@ $ git clone https://github.com/maxfierke/vagrant-hadoop-cluster.git
 Provision the bare cluster. It will ask you to enter your password, so it can modify your `/etc/hosts` file for easy access in your browser. It uses the Vagrant Hostmanager plugin to do this.
 
 ```bash
-$ cd virtual-hadoop-cluster
+$ cd vagrant-hadoop-cluster
 $ vagrant up
 ```
 
