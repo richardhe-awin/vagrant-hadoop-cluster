@@ -36,7 +36,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.define :master do |node|
     node.vm.provider :virtualbox do |v|
       v.name = "hadoop-master"
-      v.customize ["modifyvm", :id, "--memory", "4096"]
+      v.customize ["modifyvm", :id, "--memory", "6144"]
     end
     node.vm.network :private_network, ip: "192.168.33.11"
     node.vm.hostname = "hadoop-master"
