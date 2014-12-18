@@ -45,6 +45,10 @@ $ cd vagrant-hadoop-cluster
 $ vagrant up
 ```
 
-Go to the [Cloudera Manager web console](http://hadoop-master:7180) and follow the installation instructions. For more detailed instructions on how to do that, you can use [this guide](http://dandydev.net/blog/installing-virtual-hadoop-cluster). Note the master node in the guide is called hadoop-node1. In this setup, it is hadoop-master.
+Go to the [Cloudera Manager web console](http://hadoop-master:7180) and follow the installation instructions.
+
+It may take a few minutes for the master node to boot and Cloudera Manager to get up and running.
+
+For more detailed instructions on how to do that, you can use [this guide](http://dandydev.net/blog/installing-virtual-hadoop-cluster). Note the master node in the guide is called hadoop-node1. In this setup, it is hadoop-master.
 
 **Done!** Have fun with your Hadoop cluster.
