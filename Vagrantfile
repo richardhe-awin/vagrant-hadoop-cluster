@@ -14,7 +14,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # please see the online documentation at vagrantup.com.
 
   # Every Vagrant virtual environment requires a box to build off of.
-  config.vm.box = "ubuntu/trusty64"
+  config.vm.box = "hashicorp/precise64"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -35,11 +35,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.define :master do |node|
     node.vm.provider :virtualbox do |v|
-      v.name = "hadoop-master"
+      v.name = "hadoop-hdp-master"
       v.customize ["modifyvm", :id, "--memory", "6144"]
     end
     node.vm.network :private_network, ip: "192.168.33.11"
-    node.vm.hostname = "hadoop-master"
+    node.vm.hostname = "hadoop-hdp-master"
     node.vm.provision :shell, path: "provision_hosts.sh"
     node.vm.provision :hostmanager
     node.vm.provision :shell, path: "provision_master.sh"
@@ -48,13 +48,14 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   worker_nodes.each_with_index do |node, index|
     config.vm.define node do |n|
       n.vm.provider :virtualbox do |v|
-        v.name = "hadoop-#{node.to_s}"
+        v.name = "hadoop-hdp-#{node.to_s}"
         v.customize ["modifyvm", :id, "--memory", "2048"]
       end
       n.vm.network :private_network, ip: "192.168.33.#{12 + index}"
-      n.vm.hostname = "hadoop-#{node.to_s}"
+      n.vm.hostname = "hadoop-hdp-#{node.to_s}"
       n.vm.provision :shell, path: "provision_hosts.sh"
       n.vm.provision :hostmanager
+      n.vm.provision :shell, path: "provision_worker.sh"
     end
   end
 end

@@ -1,15 +1,4 @@
-Derived from @DandyDev's setup. Upgraded to trusty, using official Ubuntu box on Vagrant Cloud and made it easier to add a new node by just adding a new symbol to the `worker_nodes` array.
-
-# A working virtual Hadoop cluster
-
-<blockquote>
-With these files you can setup and provision a locally running, virtual Hadoop cluster in real distributed fashion for trying out Hadoop and related technologies. It runs the latest Cloudera Hadoop distribution: **CDH5.2.1**. It also allows you to practise the use of [Cloudera Manager](http://www.cloudera.com/content/cloudera/en/products-and-services/cloudera-enterprise/cloudera-manager.html) for installing the Hadoop stack. If you're looking for a fully automated install, without user intervention, look elsewhere. I specifically made this with the goal of creating an environment ideally suited for Cloudera Manager to do its job. This gives you the freedom to actually install the services you want, and change the configuration how you see fit.
-
-This README describes how to get the cluster with Cloudera Manager up and running. For more detailed instructions on how to install the whole Hadoop stack on that, you can use [this guide](http://dandydev.net/blog/installing-virtual-hadoop-cluster).
-<cite>@DandyDev's</cite>
-</blockquote>
-
-I (@maxfierke) may expand this to handle more automated deployments, depending on what my requirements end up being.
+**This branch uses Hortonworks HDP 2.2**. Note that HDP 2.2 on Ubuntu does not ship with Hue and will require manual installation of Hue at this time.
 
 ## Specs
 
@@ -35,7 +24,7 @@ $ vagrant plugin install vagrant-hostmanager
 Clone this repository.
 
 ```bash
-$ git clone https://github.com/maxfierke/vagrant-hadoop-cluster.git
+$ git clone https://github.com/maxfierke/vagrant-hadoop-cluster.git -b hadoop-hdp
 ```
 
 Provision the bare cluster. It will ask you to enter your password, so it can modify your `/etc/hosts` file for easy access in your browser. It uses the Vagrant Hostmanager plugin to do this.
@@ -45,6 +34,7 @@ $ cd vagrant-hadoop-cluster
 $ vagrant up
 ```
 
-Go to the [Cloudera Manager web console](http://hadoop-master:7180) and follow the installation instructions. For more detailed instructions on how to do that, you can use [this guide](http://dandydev.net/blog/installing-virtual-hadoop-cluster). Note the master node in the guide is called hadoop-node1. In this setup, it is hadoop-master.
+Go to [Ambari (http://hadoop-hdp-master:8080)](http://hadoop-hdp-master:8080) and follow the Hortonworks HDP 2.2 [Installing HDP Using Ambari](http://docs.hortonworks.com/HDPDocuments/Ambari-1.7.0.0/Ambari_Install_v170/index.html#Item3.1) guide.
+
 
 **Done!** Have fun with your Hadoop cluster.
