@@ -13,12 +13,12 @@ I (@maxfierke) may expand this to handle more automated deployments, depending o
 
 ## Specs
 
-The cluster conists of 4 nodes:
+The cluster conists of 3 nodes:
 
-* Master node with 4GB of RAM (Running the NameNode, Hue, ResourceManager etc. after installing the Hadoop services)
+* Master node with 6GB of RAM (Running the NameNode, Hue, ResourceManager etc. after installing the Hadoop services)
 * 2 workers with 2GB of RAM each (Running DataNodes)
 
-As you can see, you'll need at least 8GB of free RAM to run this. If you have less, you can try to remove one machine from the Vagrantfile. This will lead to worse performance though!
+As you can see, you'll need at least 10GB of free RAM to run this. If you have less, you can try to remove one machine from the Vagrantfile. This will lead to worse performance though!
 
 ## Usage
 
