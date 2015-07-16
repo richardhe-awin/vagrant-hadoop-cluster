@@ -5,6 +5,12 @@
 VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+  
+  # Tell virtualbox to use the host name as the dns resolver.
+  # This would solve the slow internet issue in the VMs
+  config.vm.provider "virtualbox" do |v|
+    v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+  end
 
   # List of worker nodes to setup
   worker_nodes = [:node1, :node2]
